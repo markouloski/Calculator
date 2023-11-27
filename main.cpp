@@ -1,0 +1,1 @@
+// Ideas of progression, addition, subtraction, multiplication, division, factorials, derivatives, integrals -> GUI (Dear ImGui) -> Follow SOLID principles (yes, you have to do it ugly boi)
