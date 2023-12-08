@@ -79,12 +79,14 @@ int factoral()
 }
 int integral()
 {
+	#define f(x)  x
 	long double upperbound;
 	long double lowerbound;
 	long double intervals;
 	long double step;
 	long double k;
-	long double integration=0.0;
+	long double integration = 0.0;
+	long double f_integration = 0.0;
 	std::cout << "Enter upper bound";
 	std::cin >> upperbound;
 	std::cout << "Enter lower bound";
@@ -93,23 +95,25 @@ int integral()
 	std::cin >> intervals;
 
 	step = (upperbound - lowerbound) / intervals;
-	integration = lowerbound + upperbound;
+	integration = f(lowerbound) + f(upperbound);
 
 	for (int i = 1; i <= intervals - 1; i++)
 	{
 		k = lowerbound + i * step;
-		integration = integration + 2 * k;
+		integration = integration + 2 * f(k);
 	}
 
-	integration = integration * step / 2;
+	f_integration = integration * step / 2;
 	
+	std::cout << "The integral: " << f_integration << std::endl;
 	return 0;
 }
 int main()
 {
 	int input;
 	std::cout << "User choose a number between 1 and 6.";
-	std::cout << "[1] addition, [2] subtraction, [3] multiplication, [4] division, [5] factorals, [6] integrals";
+	std::cout << "integration will require changing the function in the define for the user to integrate the function they want. ";
+	std::cout << "[1] addition, [2] subtraction, [3] multiplication, [4] division, [5] factorals, [6] integrals: ";
 	std::cin >> input;
 
 	if (input > 6 || input < 1) {
